@@ -2,11 +2,14 @@ class String
 
   def count_alphabet_occurence
     alphabets_count = Hash.new(0)
-    alphabet_list = self.split(//)              #to split the input intu individual characters
+    #to split the input into individual characters
+    alphabet_list = split(//)
     0.upto(alphabet_list.length - 1) do |i|
-      alphabets_count[alphabet_list[i]] += 1    #to increment that alphabets count
+      #to increment that alphabets count
+      alphabets_count[alphabet_list[i]] += 1
     end
-    alphabets_count                             #return alphabet count
+    #return alphabet count
+    alphabets_count
   end
 
 end
