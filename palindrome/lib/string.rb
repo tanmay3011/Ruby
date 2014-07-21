@@ -1,7 +1,5 @@
 class String
-
   def palindrome?
-    strip.eql?strip.reverse
+    strip.eql? strip.reverse
   end
-
 end
