@@ -1,7 +1,6 @@
 class Customer
 
   @@count = 0
-
   def initialize(name)
     @@count += 1
     @account_no = @@count
@@ -34,5 +33,4 @@ class Customer
       'Transaction successfully processed'
     end
   end
-
 end
