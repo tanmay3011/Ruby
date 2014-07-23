@@ -1,36 +1,53 @@
 class Customer
 
+  attr_reader :balance, :accout_no
+  attr_accessor :amount
+
   @@count = 0
   def initialize(name)
-    @@count += 1
-    @account_no = @@count
+    @account_no = (@@count += 1)
     @name = name
-    @balance = 1000
+    @balance = 1000.0
   end
 
   def to_s
     "Name: #{ @name } \t Account_no: #{ @account_no } \t Account Balance: #{ @balance }"
   end
 
-  def deposit(amount)
-    amount = amount.to_f
-    if amount > 0
-      @balance += amount
-      'Transaction successfully processed'
+  def deposit
+    if check_amount?
+      error_message('Deposit')
     else
-      'Deposit amount must be greater than zero'
+      adjust_balance(:+)
+      transaction_successful_message
     end
   end
 
-  def withdraw(amount)
-    amount = amount.to_f
-    if amount <= 0
-      'Withdrawal amount must be greater than zero'
-    elsif @balance <= amount
+  def withdraw
+    if check_amount?
+      error_message('Withdraw')
+    elsif @balance <= @amount
       'Not enough balance'
     else
-      @balance -= amount
-      'Transaction successfully processed'
+      adjust_balance(:-)
+      transaction_successful_message
     end
+  end
+
+  def adjust_balance(operator)
+    @balance = @balance.send(operator, @amount)
+  end
+
+  def error_message(operation_name)
+    "#{ operation_name } amount must be greater than zero"
+  end
+
+  def transaction_successful_message
+    'Transaction successfully processed'
+  end
+
+  def check_amount?
+    @amount = @amount.to_f
+    @amount <= 0
   end
 end
