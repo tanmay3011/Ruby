@@ -34,20 +34,22 @@ class Customer
     end
   end
 
-  def adjust_balance(operator)
-    @balance = @balance.send(operator, @amount)
-  end
+  private
 
-  def error_message
-    "Amount entered must be greater than zero"
-  end
+    def adjust_balance(operator)
+      @balance = @balance.send(operator, @amount)
+    end
 
-  def transaction_successful_message
-    'Transaction successfully processed'
-  end
+    def error_message
+      "Amount entered must be greater than zero"
+    end
 
-  def amount_negative?
-    @amount = @amount.to_f
-    @amount <= 0
-  end
+    def transaction_successful_message
+      'Transaction successfully processed'
+    end
+
+    def amount_negative?
+      @amount = @amount.to_f
+      @amount <= 0
+    end
 end
