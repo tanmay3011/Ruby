@@ -15,22 +15,22 @@ class Customer
   end
 
   def deposit
-    if amount_negative?
+    if amount_less_than_zero?
       error_message
     else
       adjust_balance(:+)
-      transaction_successful_message
+      transaction_successful_message('deposited')
     end
   end
 
   def withdraw
-    if amount_negative?
+    if amount_less_than_zero?
       error_message
     elsif balance <= amount
       'Not enough balance'
     else
       adjust_balance(:-)
-      transaction_successful_message
+      transaction_successful_message('withdrawn')
     end
   end
 
@@ -45,14 +45,14 @@ class Customer
     end
 
     def error_message
-      "Amount entered must be greater than zero"
+      'Amount entered must be greater than zero'
     end
 
-    def transaction_successful_message
-      'Transaction successfully processed'
+    def transaction_successful_message(operation_performed)
+      "#{ amount } #{ operation_performed } successfully"
     end
 
-    def amount_negative?
+    def amount_less_than_zero?
       amount <= 0
     end
 end
