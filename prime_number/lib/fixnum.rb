@@ -1,5 +1,3 @@
-require 'prime'
-
 class Fixnum
 
   def find_prime
