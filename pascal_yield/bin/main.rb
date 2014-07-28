@@ -1,3 +1,3 @@
 require_relative '../lib/fixnum'
 
-6.pascal_triangle_create { |value| print value }
+6.create_pascal_triangle { |value| print value }
