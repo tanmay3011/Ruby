@@ -7,7 +7,7 @@ class Fixnum
   def pascal_triangle_create
     (self + 1).times do |i|
       (i+1).times do |j|
-        yield factorial(i)/(factorial(j)*factorial(i-j))
+        yield factorial(i) / (factorial(j) * factorial(i-j))
         yield " "
       end
       yield "\n"
