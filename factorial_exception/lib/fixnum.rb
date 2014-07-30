@@ -1,3 +1,5 @@
+require_relative '../lib/negative_number_error'
+
 class Fixnum
 
   def factorial
