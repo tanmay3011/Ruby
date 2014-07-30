@@ -8,11 +8,11 @@ class Name
   REGEX_FOR_FIRST_LETTER_CAPITAL = /[A-Z]/
   def initialize(firstname, lastname)
     begin
-      raise NullInputError, 'First name not given' if !(firstname !~ REGEX_FOR_EMPTY_STRING)
+      raise NullInputError, 'First name not given' if (!(firstname !~ REGEX_FOR_EMPTY_STRING) || firstname.nil?)
       raise CaseError, 'First letter of First name is not capital' if firstname[0] !~ REGEX_FOR_FIRST_LETTER_CAPITAL
       @firstname = firstname
 
-      raise NullInputError, 'Last name not given' if !(lastname !~ REGEX_FOR_EMPTY_STRING)
+      raise NullInputError, 'Last name not given' if (!(lastname !~ REGEX_FOR_EMPTY_STRING) || lastname.nil?)
       @lastname = lastname
     end
   end
