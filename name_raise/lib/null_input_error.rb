@@ -1,0 +1,2 @@
+class NullInputError < StandardError
+end
