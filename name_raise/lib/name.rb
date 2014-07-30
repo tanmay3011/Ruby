@@ -1,4 +1,4 @@
-require_relative '../lib/null_input_error'
+require_relative '../lib/blank_input_error'
 require_relative '../lib/case_error'
 
 class Name
@@ -6,20 +6,23 @@ class Name
   attr_reader :firstname, :lastname
   
   REGEX_FOR_EMPTY_STRING = /^\s*$/
-  REGEX_FOR_FIRST_LETTER_CAPITAL = /[A-Z]/
+  REGEX_FOR_CAPITAL_LETTER = /[A-Z]/
 
   def initialize(firstname, lastname)
-    begin
-      raise NullInputError, 'First name not given' if (firstname =~ REGEX_FOR_EMPTY_STRING || firstname.nil?)
-      raise CaseError, 'First letter of First name is not capital' if firstname[0] !~ REGEX_FOR_FIRST_LETTER_CAPITAL
-      @firstname = firstname
+    raise BlankInputError, 'First name not given' if valid?(firstname)
+    raise CaseError, 'First letter of First name is not capital' if firstname[0] !~ REGEX_FOR_CAPITAL_LETTER
+    @firstname = firstname
 
-      raise NullInputError, 'Last name not given' if (lastname =~ REGEX_FOR_EMPTY_STRING || lastname.nil?)
-      @lastname = lastname
-    end
+    raise BlankInputError, 'Last name not given' if valid?(lastname)
+    @lastname = lastname
   end
 
   def to_s
     "Name: #{ firstname } #{ lastname }"
   end
+
+  private
+    def valid?(name)
+      name =~ REGEX_FOR_EMPTY_STRING || name.nil?
+    end
 end

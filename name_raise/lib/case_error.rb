@@ -1,2 +1,1 @@
-class CaseError < StandardError
-end
+CaseError = StandardError.new('CaseError')

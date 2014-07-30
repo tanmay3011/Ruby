@@ -1,0 +1,1 @@
+BlankInputError = StandardError.new('BlankInputError')

@@ -1,2 +1,0 @@
-class NullInputError < StandardError
-end
