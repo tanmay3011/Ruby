@@ -1,3 +1,3 @@
 require_relative '../lib/name'
 
-puts Name.new('Alpha', nil)
+puts Name.new('Alpha', 'Beta')
