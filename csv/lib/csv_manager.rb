@@ -9,7 +9,7 @@ class CsvManager
 
   def move_to_file(output_filepath)
     temp_hash = Hash.new { |hash, key| hash[key] = [] }
-    
+
     CSV.foreach(input_filepath, headers: true) do |row|
       temp_hash[row['Designation']] << CsvData.new(row['Name'], row['EmpId'])
     end
