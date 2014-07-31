@@ -10,9 +10,5 @@ class Fixnum
     else
       (1..self).inject(:*)
     end
-
-    rescue NegativeNumberError
-      puts "#{ $! }: Negative Number is not allowed thus Factorial is not defined"
-      abort
   end
 end
