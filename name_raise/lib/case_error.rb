@@ -1,1 +1,1 @@
-CaseError = StandardError.new('CaseError')
+CaseError = Class.new(StandardError)

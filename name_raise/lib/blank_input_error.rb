@@ -1,1 +1,1 @@
-BlankInputError = StandardError.new('BlankInputError')
+BlankInputError = Class.new(StandardError)
