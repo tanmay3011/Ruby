@@ -1,8 +1,8 @@
 Developer
-Jack (EmpId: 15) 
-John (EmpId: 12) 
+Jack (EmpId: 15)
+John (EmpId: 12)
 Designer
-Mary (EmpId: 13) 
-Jane (EmpId: 17) 
+Mary (EmpId: 13)
+Jane (EmpId: 17)
 Tester
-Johny (EmpId: 19) 
+Johny (EmpId: 19)
