@@ -31,7 +31,7 @@ class Order
     item = Item.new
     item.name = yield PRODUCT_NAME_MSG
     item.imported = ((yield IMPORTED_MSG ) =~ REGEX_FOR_YES)
-    item.exempted_sales_tax = (yield EXEMPTION_MSG) =~ REGEX_FOR_YES
+    item.sales_tax_exempted = (yield EXEMPTION_MSG) =~ REGEX_FOR_YES
     item.price = (yield ENTER_PRICE_MSG ).to_i
     @items.push(item)
     decision = yield EXIT_MSG

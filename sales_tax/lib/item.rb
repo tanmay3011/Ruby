@@ -1,6 +1,6 @@
 class Item
 
-  attr_accessor :name, :imported, :exempted_sales_tax, :price
+  attr_accessor :name, :imported, :sales_tax_exempted, :price
 
   def to_s
     "#{ name } \t #{ price }"
@@ -16,6 +16,6 @@ class Item
     end
 
     def calculate_sales_tax
-      exempted_sales_tax ? 0 : price * 0.05
+      sales_tax_exempted ? 0 : price * 0.05
     end
 end
