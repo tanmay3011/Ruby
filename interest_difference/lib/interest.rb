@@ -2,7 +2,7 @@ class Interest
 
   attr_accessor :principal, :rate, :time
 
-  def initialize(principal, time, rate=10)
+  def initialize(principal, time, rate = 10)
     @principal = principal
     @time = time
     @rate = rate
