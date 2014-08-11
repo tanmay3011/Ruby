@@ -2,10 +2,10 @@ class Interest
 
   attr_accessor :principal, :rate, :time
 
-  def initialize(principal, time, rate = 10)
-    @principal = principal
-    @time = time
-    @rate = rate
+  def initialize
+    yield self if block_given?
+    raise ArgumentError if (principal.nil? || time.nil?)
+    @rate = 10 if rate.nil?
   end
 
   def difference
